@@ -25,7 +25,7 @@ public class Main {
                             System.out.println("Rock breaks Scissors, Player A wins.");
                             done = true;
                         } else {
-                            trash = playB;
+                            trash = playB; //not trash = in.nextLine(); bc the invalid input is already a string.
                             System.out.println(trash + " is not a valid move. Please try again.");
                         }
                     } while(!done);
