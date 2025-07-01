@@ -7,6 +7,7 @@ public class Main {
         String trash = "";
         String playAgain = "";
         boolean done = false;
+        boolean repeat = false;
         do {
             do {
                 System.out.print("Enter a move for Player A [RPS]: ");
@@ -72,16 +73,23 @@ public class Main {
                     System.out.println(trash + " is not a valid move. Please try again.");
                 }
             } while(!done);
-            System.out.print("Do you want to play again? [YN] ");
-            playAgain = in.nextLine();
-            if (playAgain.equalsIgnoreCase("Y")) {
-                done = false;
-            } else if (playAgain.equalsIgnoreCase("N")) {
-                System.out.println("Thanks for playing!");
-            } else {
-                trash = in.nextLine();
-                System.out.println(trash + " is not a valid response.");
-            }
+            do{
+                System.out.print("Do you want to play again? [YN] ");
+                playAgain = in.nextLine();
+                if (playAgain.equalsIgnoreCase("Y")) {
+                    done = false;
+                    repeat = false;
+                } else if (playAgain.equalsIgnoreCase("N")) {
+                    System.out.println("Thanks for playing!");
+                    done = true;
+                    repeat = false;
+                } else {
+                    trash = playAgain;
+                    System.out.println(trash + " is not a valid response.");
+                    done = false;
+                    repeat = true;
+                }
+            } while(!done && repeat);
         } while(!done);
     }
 }
